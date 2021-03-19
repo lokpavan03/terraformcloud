@@ -28,10 +28,6 @@ provider "azurerm" {
   client_id       = secrets.client_id
   client_secret   = secrets.client_secret
   tenant_id       = secrets.tenant_id
-#   subscription_id = ${env.subscription_id}
-#   client_id       = ${env.client_id}
-#   client_secret   = ${env.client_secret}
-#   tenant_id       = ${env.tenant_id}
 }
 
 #Create a Resource Group
