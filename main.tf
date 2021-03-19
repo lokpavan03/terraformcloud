@@ -1,13 +1,25 @@
-# We strongly recommend using the required_providers block to set the
-# Azure Provider source and version being used
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.46.0"
+    terraform {
+      backend "remote" {
+        # The name of your Terraform Cloud organization.
+        organization = "lokdemo"
+
+        # The name of the Terraform Cloud workspace to store Terraform state files in.
+        workspaces {
+          name = "terraformcloud"
+        }
+      }
     }
-  }
-}
+
+# # We strongly recommend using the required_providers block to set the
+# # Azure Provider source and version being used
+# terraform {
+#   required_providers {
+#     azurerm = {
+#       source  = "hashicorp/azurerm"
+#       version = "=2.46.0"
+#     }
+#   }
+# }
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
