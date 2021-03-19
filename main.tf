@@ -28,13 +28,22 @@ provider "azurerm" {
   client_id       = var.client_id
   client_secret   = var.client_secret
   tenant_id       = var.tenant_id
-#   subscription_id = ${env.subscription_id}
-#   client_id       = ${env.client_id}
-#   client_secret   = ${env.client_secret}
-#   tenant_id       = ${env.tenant_id}
+#   subscription_id = ${{ secrets.subscription_id }}
+#   client_id       = ${{ secrets.client_id }}
+#   client_secret   = ${{ secrets.client_secret }}
+#   tenant_id       = ${{ secrets.tenant_id }}
 }
 
+#Create a Resource Group
 resource "azurerm_resource_group" "rg" {
   name     = "WEgroup"
   location = "West Europe"
+}
+
+#Create a Virtual Network with resource group
+resource "azurerm_virtual_network" "vnet" {
+  name                = "Vnet-tf"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  address_space       = ["10.0.0.0/16"]
 }
