@@ -12,10 +12,10 @@ terraform {
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
-  subscription_id = $subscription_id
-  client_id       = $client_id
-  client_secret   = $client_secret
-  tenant_id       = $tenant_id
+  subscription_id = ${env.subscription_id}
+  client_id       = ${env.client_id}
+  client_secret   = ${env.client_secret}
+  tenant_id       = ${env.tenant_id}
 }
 
 resource "azurerm_resource_group" "rg" {
