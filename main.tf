@@ -24,10 +24,10 @@
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
+  subscription_id = secrets.subscription_id
+  client_id       = secrets.client_id
+  client_secret   = secrets.client_secret
+  tenant_id       = secrets.tenant_id
 #   subscription_id = ${env.subscription_id}
 #   client_id       = ${env.client_id}
 #   client_secret   = ${env.client_secret}
